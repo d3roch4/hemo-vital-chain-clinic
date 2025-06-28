@@ -1,0 +1,47 @@
+
+{
+  "badge": "Tokenomics",
+  "title": "Token Economy",
+  "titleHighlight": "$HEMO",
+  "subtitle": "Transparent and strategic distribution of resources to maximize impact on hemodialysis clinic network expansion.",
+  "tokenDetails": {
+    "title": "Token Details",
+    "totalSupply": "Total Supply",
+    "currentPrice": "Current Price",
+    "hardCap": "Hard Cap",
+    "softCap": "Soft Cap"
+  },
+  "distribution": {
+    "title": "Resource Distribution",
+    "construction": "Construction and Equipment",
+    "operation": "Operation and Marketing",
+    "reserve": "Emergency Reserve",
+    "team": "Team and Development",
+    "partnerships": "Strategic Partnerships"
+  },
+  "vesting": {
+    "title": "Vesting Schedule",
+    "tge": "25% at TGE (Token Generation Event)",
+    "cliff": "25% at 6 months (cliff)",
+    "monthly": "50% released monthly over 18 months"
+  },
+  "roadmap": {
+    "title": "Implementation Roadmap",
+    "q1": {
+      "title": "Fundraising",
+      "description": "Token launch and initial fundraising"
+    },
+    "q2": {
+      "title": "Planning",
+      "description": "Site selection and architectural projects"
+    },
+    "q3": {
+      "title": "Construction",
+      "description": "Start of construction of the first clinics"
+    },
+    "q4": {
+      "title": "Operation",
+      "description": "Opening of the first units"
+    }
+  }
+}

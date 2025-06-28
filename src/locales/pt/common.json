@@ -1,0 +1,14 @@
+
+{
+  "loading": "Carregando...",
+  "error": "Erro",
+  "success": "Sucesso",
+  "continue": "Continuar",
+  "back": "Voltar",
+  "next": "Próximo",
+  "previous": "Anterior",
+  "close": "Fechar",
+  "save": "Salvar",
+  "cancel": "Cancelar",
+  "confirm": "Confirmar"
+}

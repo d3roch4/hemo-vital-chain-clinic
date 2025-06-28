@@ -1,0 +1,40 @@
+
+{
+  "badge": "Por qué Invertir",
+  "title": "Oportunidad Única en el",
+  "titleHighlight": "Sector Salud",
+  "subtitle": "$HEMO combina el potencial de crecimiento del sector salud con la innovación de la gobernanza descentralizada, creando valor para inversores y pacientes.",
+  "items": {
+    "governance": {
+      "title": "Gobernanza Descentralizada",
+      "description": "Los holders de $HEMO participan en las decisiones estratégicas de la red de clínicas",
+      "badge": "DAO"
+    },
+    "expansion": {
+      "title": "Expansión de la Red",
+      "description": "Fondos recaudados para construcción y equipamiento de nuevas unidades",
+      "badge": "Crecimiento"
+    },
+    "excellence": {
+      "title": "Excelencia Médica",
+      "description": "Estándar internacional de cuidado renal con tecnología de punta",
+      "badge": "Calidad"
+    },
+    "returns": {
+      "title": "Retorno Sostenible",
+      "description": "Modelo de negocio probado en el sector de salud suplementaria",
+      "badge": "ROI"
+    },
+    "transparency": {
+      "title": "Transparencia Total",
+      "description": "Blockchain garantiza auditabilidad y transparencia de los recursos",
+      "badge": "Seguridad"
+    },
+    "impact": {
+      "title": "Impacto Social",
+      "description": "Ampliación del acceso a tratamiento de calidad para enfermedad renal",
+      "badge": "ESG"
+    }
+  },
+  "callToAction": "Únete a más de 500 inversores que ya han confiado en el proyecto"
+}

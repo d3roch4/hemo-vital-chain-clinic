@@ -1,0 +1,26 @@
+
+{
+  "badge": "Revolucionando o Cuidado Renal",
+  "title": "Invista no Futuro da",
+  "titleHighlight": "Hemodiálise",
+  "subtitle": "$HEMO é o token que conecta investidores à governança de uma rede revolucionária de clínicas de hemodiálise. Participe da transformação do setor de saúde renal.",
+  "stats": {
+    "fundraising": {
+      "value": "$50M",
+      "label": "Meta de Captação"
+    },
+    "clinics": {
+      "value": "10+",
+      "label": "Clínicas Planejadas"
+    },
+    "patients": {
+      "value": "1000+",
+      "label": "Pacientes Beneficiados"
+    }
+  },
+  "cta": {
+    "buy": "Comprar $HEMO Agora",
+    "whitepaper": "Ver Whitepaper"
+  },
+  "trust": "Apoiado por especialistas em saúde e blockchain"
+}

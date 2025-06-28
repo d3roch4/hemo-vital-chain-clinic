@@ -1,0 +1,26 @@
+
+{
+  "badge": "Revolutionizing Kidney Care",
+  "title": "Invest in the Future of",
+  "titleHighlight": "Hemodialysis",
+  "subtitle": "$HEMO is the token that connects investors to the governance of a revolutionary network of hemodialysis clinics. Join the transformation of the kidney healthcare sector.",
+  "stats": {
+    "fundraising": {
+      "value": "$50M",
+      "label": "Fundraising Goal"
+    },
+    "clinics": {
+      "value": "10+",
+      "label": "Planned Clinics"
+    },
+    "patients": {
+      "value": "1000+",
+      "label": "Benefited Patients"
+    }
+  },
+  "cta": {
+    "buy": "Buy $HEMO Now",
+    "whitepaper": "View Whitepaper"
+  },
+  "trust": "Backed by healthcare and blockchain experts"
+}

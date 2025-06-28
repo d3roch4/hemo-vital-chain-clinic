@@ -1,0 +1,40 @@
+
+{
+  "badge": "Why Invest",
+  "title": "Unique Opportunity in",
+  "titleHighlight": "Healthcare Sector",
+  "subtitle": "$HEMO combines the growth potential of the healthcare sector with decentralized governance innovation, creating value for investors and patients.",
+  "items": {
+    "governance": {
+      "title": "Decentralized Governance",
+      "description": "$HEMO holders participate in strategic decisions of the clinic network",
+      "badge": "DAO"
+    },
+    "expansion": {
+      "title": "Network Expansion",
+      "description": "Funds raised for construction and equipment of new units",
+      "badge": "Growth"
+    },
+    "excellence": {
+      "title": "Medical Excellence",
+      "description": "International standard of kidney care with cutting-edge technology",
+      "badge": "Quality"
+    },
+    "returns": {
+      "title": "Sustainable Returns",
+      "description": "Proven business model in the supplementary healthcare sector",
+      "badge": "ROI"
+    },
+    "transparency": {
+      "title": "Total Transparency",
+      "description": "Blockchain ensures auditability and transparency of resources",
+      "badge": "Security"
+    },
+    "impact": {
+      "title": "Social Impact",
+      "description": "Expanding access to quality treatment for kidney disease",
+      "badge": "ESG"
+    }
+  },
+  "callToAction": "Join over 500 investors who have already trusted the project"
+}

@@ -11,49 +11,52 @@ import {
   Heart,
   Users
 } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
+  const { t } = useTranslation('features');
+
   const features = [
     {
       icon: Vote,
-      title: "Governança Descentralizada",
-      description: "Holders de $HEMO participam das decisões estratégicas da rede de clínicas",
-      badge: "DAO",
+      title: t('items.governance.title'),
+      description: t('items.governance.description'),
+      badge: t('items.governance.badge'),
       color: "text-hemo-600"
     },
     {
       icon: Building2,
-      title: "Expansão da Rede",
-      description: "Fundos levantados para construção e equipamento de novas unidades",
-      badge: "Crescimento",
+      title: t('items.expansion.title'),
+      description: t('items.expansion.description'),
+      badge: t('items.expansion.badge'),
       color: "text-green-600"
     },
     {
       icon: Stethoscope,
-      title: "Excelência Médica",
-      description: "Padrão internacional de cuidado renal com tecnologia de ponta",
-      badge: "Qualidade",
+      title: t('items.excellence.title'),
+      description: t('items.excellence.description'),
+      badge: t('items.excellence.badge'),
       color: "text-blue-600"
     },
     {
       icon: TrendingUp,
-      title: "Retorno Sustentável",
-      description: "Modelo de negócio comprovado no setor de saúde suplementar",
-      badge: "ROI",
+      title: t('items.returns.title'),
+      description: t('items.returns.description'),
+      badge: t('items.returns.badge'),
       color: "text-purple-600"
     },
     {
       icon: Shield,
-      title: "Transparência Total",
-      description: "Blockchain garante auditabilidade e transparência dos recursos",
-      badge: "Segurança",
+      title: t('items.transparency.title'),
+      description: t('items.transparency.description'),
+      badge: t('items.transparency.badge'),
       color: "text-red-600"
     },
     {
       icon: Globe,
-      title: "Impacto Social",
-      description: "Ampliação do acesso a tratamento de qualidade para doença renal",
-      badge: "ESG",
+      title: t('items.impact.title'),
+      description: t('items.impact.description'),
+      badge: t('items.impact.badge'),
       color: "text-emerald-600"
     }
   ];
@@ -64,15 +67,14 @@ const Features = () => {
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 text-hemo-700 border-hemo-200">
             <Heart className="w-4 h-4 mr-2" />
-            Por que Investir
+            {t('badge')}
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Oportunidade Única no
-            <span className="text-hemo-600 block mt-2">Setor de Saúde</span>
+            {t('title')}
+            <span className="text-hemo-600 block mt-2">{t('titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            $HEMO combina o potencial de crescimento do setor de saúde com a inovação 
-            da governança descentralizada, criando valor para investidores e pacientes.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -109,7 +111,7 @@ const Features = () => {
         <div className="text-center mt-16">
           <div className="inline-flex items-center px-6 py-3 bg-hemo-100 text-hemo-800 rounded-full text-sm font-medium">
             <Users className="w-4 h-4 mr-2" />
-            Junte-se a mais de 500 investidores que já confiaram no projeto
+            {t('callToAction')}
           </div>
         </div>
       </div>

@@ -1,0 +1,37 @@
+
+{
+  "description": "Revolucionando el cuidado renal a través de la tecnología blockchain y la gobernanza descentralizada.",
+  "quickLinks": {
+    "title": "Enlaces Rápidos",
+    "whitepaper": "Whitepaper",
+    "tokenomics": "Tokenomics",
+    "roadmap": "Roadmap",
+    "team": "Equipo",
+    "faq": "FAQ"
+  },
+  "resources": {
+    "title": "Recursos",
+    "documentation": "Documentación",
+    "api": "API",
+    "governance": "Gobernanza",
+    "audit": "Auditoría",
+    "compliance": "Cumplimiento"
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Recibe actualizaciones sobre el proyecto y oportunidades de inversión.",
+    "placeholder": "Tu email"
+  },
+  "contact": {
+    "email": "contacto@hemotoken.com",
+    "phone": "+55 (11) 9999-0000",
+    "location": "São Paulo, Brasil"
+  },
+  "legal": {
+    "copyright": "© 2024 $HEMO Token. Todos los derechos reservados.",
+    "terms": "Términos de Uso",
+    "privacy": "Política de Privacidad",
+    "disclaimer": "Aviso Legal",
+    "legalText": "Aviso Legal: Esta no es una oferta de valores. $HEMO es un token utilitario para la gobernanza de la red de clínicas. Siempre consulte a un profesional financiero antes de invertir. Las inversiones en criptomonedas involucran riesgos significativos."
+  }
+}
