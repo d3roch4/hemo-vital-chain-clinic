@@ -70,16 +70,6 @@ const Hero = () => {
               {t('cta.whitepaper')}
             </Button>
           </div>
-          
-          {/* Trust indicators */}
-          <div className="mt-16 pt-8 border-t border-gray-200 animate-fade-in animate-delay-600">
-            <p className="text-gray-500 mb-4">{t('trust')}</p>
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="text-2xl font-bold text-gray-400">ANVISA</div>
-              <div className="text-2xl font-bold text-gray-400">SBN</div>
-              <div className="text-2xl font-bold text-gray-400">CFM</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

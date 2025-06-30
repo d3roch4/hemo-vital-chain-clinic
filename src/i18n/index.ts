@@ -53,7 +53,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'pt',
+    fallbackLng: 'en',
     defaultNS: 'common',
     ns: ['common', 'hero', 'features', 'tokenomics', 'footer'],
     
