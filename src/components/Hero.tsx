@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, DollarSign, Users } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import PurchaseModal from './PurchaseModal';
 
 const Hero = () => {
   const { t } = useTranslation('hero');
@@ -55,13 +56,15 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animate-delay-600">
-            <Button 
-              size="lg" 
-              className="bg-medical-gradient hover:shadow-xl transition-all duration-300 text-lg px-8 py-4 animate-pulse-glow"
-            >
-              {t('cta.buy')}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <PurchaseModal>
+              <Button 
+                size="lg" 
+                className="bg-medical-gradient hover:shadow-xl transition-all duration-300 text-lg px-8 py-4 animate-pulse-glow"
+              >
+                {t('cta.buy')}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </PurchaseModal>
             <Button 
               variant="outline" 
               size="lg" 

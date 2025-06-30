@@ -1,14 +1,27 @@
 
 {
-  "loading": "Cargando...",
-  "error": "Error",
-  "success": "Éxito",
-  "continue": "Continuar",
-  "back": "Atrás",
-  "next": "Siguiente",
-  "previous": "Anterior",
-  "close": "Cerrar",
-  "save": "Guardar",
-  "cancel": "Cancelar",
-  "confirm": "Confirmar"
+  "wallet": {
+    "title": "Conexión de Billetera",
+    "connect": "Conecta tu billetera Phantom para comprar tokens $HEMO",
+    "connected": "Billetera conectada exitosamente",
+    "address": "Dirección de la Billetera"
+  },
+  "purchase": {
+    "title": "Comprar Tokens $HEMO",
+    "description": "Compra tokens $HEMO a $0.05 cada uno",
+    "amount": "Cantidad de tokens",
+    "cost": "Costo",
+    "solAmount": "Cantidad SOL",
+    "buy": "Comprar Tokens",
+    "processing": "Procesando...",
+    "success": "¡Transacción exitosa!",
+    "signature": "Firma",
+    "viewExplorer": "Ver en Solana Explorer",
+    "connectWallet": "Por favor, conecta tu billetera para comprar tokens $HEMO.",
+    "error": {
+      "missingData": "Por favor, conecta la billetera e ingresa la cantidad",
+      "invalidAmount": "Por favor, ingresa una cantidad válida",
+      "failed": "La transacción falló. Inténtalo de nuevo."
+    }
+  }
 }
