@@ -10,21 +10,49 @@ import {
   Calendar,
   Target
 } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const Tokenomics = () => {
+  const { t } = useTranslation('tokenomics');
+
   const distribution = [
-    { category: "Construção e Equipamentos", percentage: 40, color: "bg-hemo-500", amount: "20M" },
-    { category: "Operação e Marketing", percentage: 25, color: "bg-hemo-400", amount: "12.5M" },
-    { category: "Reserva de Emergência", percentage: 15, color: "bg-hemo-300", amount: "7.5M" },
-    { category: "Equipe e Desenvolvimento", percentage: 12, color: "bg-hemo-600", amount: "6M" },
-    { category: "Parcerias Estratégicas", percentage: 8, color: "bg-hemo-200", amount: "4M" }
+    { 
+      category: t('distribution.construction'), 
+      percentage: 40, 
+      color: "bg-hemo-500", 
+      amount: "20M" 
+    },
+    { 
+      category: t('distribution.operation'), 
+      percentage: 25, 
+      color: "bg-hemo-400", 
+      amount: "12.5M" 
+    },
+    { 
+      category: t('distribution.reserve'), 
+      percentage: 15, 
+      color: "bg-hemo-300", 
+      amount: "7.5M" 
+    },
+    { 
+      category: t('distribution.team'), 
+      percentage: 12, 
+      color: "bg-hemo-600", 
+      amount: "6M" 
+    },
+    { 
+      category: t('distribution.partnerships'), 
+      percentage: 8, 
+      color: "bg-hemo-200", 
+      amount: "4M" 
+    }
   ];
 
   const tokenDetails = [
-    { label: "Supply Total", value: "1,000,000,000", unit: "$HEMO" },
-    { label: "Preço Atual", value: "$0.05", unit: "USD" },
-    { label: "Hard Cap", value: "$50M", unit: "USD" },
-    { label: "Soft Cap", value: "$10M", unit: "USD" }
+    { label: t('tokenDetails.totalSupply'), value: "1,000,000,000", unit: "$HEMO" },
+    { label: t('tokenDetails.currentPrice'), value: "$0.05", unit: "USD" },
+    { label: t('tokenDetails.hardCap'), value: "$50M", unit: "USD" },
+    { label: t('tokenDetails.softCap'), value: "$10M", unit: "USD" }
   ];
 
   return (
@@ -33,15 +61,14 @@ const Tokenomics = () => {
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 text-hemo-700 border-hemo-200">
             <Coins className="w-4 h-4 mr-2" />
-            Tokenomics
+            {t('badge')}
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Economia do Token
-            <span className="text-hemo-600 block mt-2">$HEMO</span>
+            {t('title')}
+            <span className="text-hemo-600 block mt-2">{t('titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Distribuição transparente e estratégica dos recursos para maximizar 
-            o impacto na expansão da rede de clínicas de hemodiálise.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -51,7 +78,7 @@ const Tokenomics = () => {
             <CardHeader>
               <CardTitle className="flex items-center text-2xl font-bold text-gray-900">
                 <Target className="w-6 h-6 mr-3 text-hemo-600" />
-                Detalhes do Token
+                {t('tokenDetails.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -71,12 +98,12 @@ const Tokenomics = () => {
               <div className="mt-8 p-4 bg-gradient-to-r from-hemo-50 to-medical-50 rounded-lg">
                 <div className="flex items-center mb-3">
                   <Lock className="w-5 h-5 mr-2 text-hemo-600" />
-                  <span className="font-semibold text-gray-900">Cronograma de Liberação</span>
+                  <span className="font-semibold text-gray-900">{t('vesting.title')}</span>
                 </div>
                 <div className="space-y-2 text-sm text-gray-600">
-                  <div>• 25% na TGE (Token Generation Event)</div>
-                  <div>• 25% em 6 meses (cliff)</div>
-                  <div>• 50% liberados mensalmente ao longo de 18 meses</div>
+                  <div>• {t('vesting.tge')}</div>
+                  <div>• {t('vesting.cliff')}</div>
+                  <div>• {t('vesting.monthly')}</div>
                 </div>
               </div>
             </CardContent>
@@ -87,7 +114,7 @@ const Tokenomics = () => {
             <CardHeader>
               <CardTitle className="flex items-center text-2xl font-bold text-gray-900">
                 <PieChart className="w-6 h-6 mr-3 text-hemo-600" />
-                Distribuição dos Recursos
+                {t('distribution.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -116,7 +143,7 @@ const Tokenomics = () => {
           <CardHeader>
             <CardTitle className="flex items-center text-2xl font-bold text-gray-900">
               <Calendar className="w-6 h-6 mr-3 text-hemo-600" />
-              Roadmap de Implementação
+              {t('roadmap.title')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -125,29 +152,29 @@ const Tokenomics = () => {
                 <div className="w-16 h-16 bg-hemo-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">Q1</span>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Captação</h4>
-                <p className="text-sm text-gray-600">Launch do token e captação inicial</p>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('roadmap.q1.title')}</h4>
+                <p className="text-sm text-gray-600">{t('roadmap.q1.description')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-hemo-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">Q2</span>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Planejamento</h4>
-                <p className="text-sm text-gray-600">Seleção de locais e projetos arquitetônicos</p>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('roadmap.q2.title')}</h4>
+                <p className="text-sm text-gray-600">{t('roadmap.q2.description')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-hemo-300 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">Q3</span>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Construção</h4>
-                <p className="text-sm text-gray-600">Início das obras das primeiras clínicas</p>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('roadmap.q3.title')}</h4>
+                <p className="text-sm text-gray-600">{t('roadmap.q3.description')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-hemo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">Q4</span>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Operação</h4>
-                <p className="text-sm text-gray-600">Abertura das primeiras unidades</p>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('roadmap.q4.title')}</h4>
+                <p className="text-sm text-gray-600">{t('roadmap.q4.description')}</p>
               </div>
             </div>
           </CardContent>
