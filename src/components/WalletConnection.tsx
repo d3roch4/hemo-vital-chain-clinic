@@ -7,9 +7,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Wallet, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const WalletConnection = () => {
+interface WalletConnectionProps {
+  onModalClose?: () => void;
+}
+
+const WalletConnection = ({ onModalClose }: WalletConnectionProps) => {
   const { t } = useTranslation('common');
   const { connected, publicKey } = useWallet();
+
+  const handleWalletButtonClick = () => {
+    // Fechar o modal principal para permitir que o modal da carteira apareça
+    if (onModalClose) {
+      onModalClose();
+    }
+  };
 
   return (
     <Card className="w-full max-w-md mx-auto bg-white/80 backdrop-blur-sm border-0 shadow-lg">
@@ -26,11 +37,12 @@ const WalletConnection = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="flex justify-center relative z-[60]">
-          <WalletMultiButton 
-            className="!bg-hemo-600 hover:!bg-hemo-700 !border-none !rounded-lg !px-6 !py-3 !text-white !font-medium transition-colors !relative !z-[60]" 
-            style={{ zIndex: 60, position: 'relative' }}
-          />
+        <div className="flex justify-center">
+          <div onClick={handleWalletButtonClick}>
+            <WalletMultiButton 
+              className="!bg-hemo-600 hover:!bg-hemo-700 !border-none !rounded-lg !px-6 !py-3 !text-white !font-medium transition-colors" 
+            />
+          </div>
         </div>
         
         {connected && publicKey && (
