@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import { PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { createTransferInstruction, getAssociatedTokenAddress, createAssociatedTokenAccountInstruction, getAccount } from '@solana/spl-token';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -19,8 +20,9 @@ const TokenPurchase = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [txSignature, setTxSignature] = useState('');
 
-  // Mock treasury wallet address (replace with actual treasury address)
-  const treasuryAddress = new PublicKey('11111111111111111111111111111112');
+  // $HEMO token details
+  const HEMO_TOKEN_MINT = new PublicKey('9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk');
+  const treasuryAddress = new PublicKey('11111111111111111111111111111112'); // Replace with actual treasury address
   
   const tokenPrice = 0.05; // $0.05 per token
   const solPrice = 150; // Mock SOL price in USD
@@ -41,14 +43,41 @@ const TokenPurchase = () => {
     setTxSignature('');
 
     try {
-      // Create transaction
-      const transaction = new Transaction().add(
+      const transaction = new Transaction();
+      
+      // Add SOL payment to treasury
+      transaction.add(
         SystemProgram.transfer({
           fromPubkey: publicKey,
           toPubkey: treasuryAddress,
           lamports: Math.floor(solAmount * LAMPORTS_PER_SOL),
         })
       );
+
+      // Get user's associated token account for HEMO
+      const userTokenAccount = await getAssociatedTokenAddress(
+        HEMO_TOKEN_MINT,
+        publicKey
+      );
+
+      // Check if user token account exists, if not create it
+      try {
+        await getAccount(connection, userTokenAccount);
+      } catch {
+        // Account doesn't exist, create it
+        transaction.add(
+          createAssociatedTokenAccountInstruction(
+            publicKey, // payer
+            userTokenAccount, // associated token account
+            publicKey, // owner
+            HEMO_TOKEN_MINT // mint
+          )
+        );
+      }
+
+      // Note: In a real implementation, you would need to have the treasury send tokens
+      // This is a simplified version that only handles the SOL payment
+      // The actual token distribution would be handled by your backend/treasury system
 
       // Get recent blockhash
       const { blockhash } = await connection.getLatestBlockhash();
@@ -65,6 +94,7 @@ const TokenPurchase = () => {
       toast.success(t('purchase.success', 'Transaction successful!'));
       
       console.log('Transaction signature:', signature);
+      console.log('HEMO tokens purchased:', amount);
     } catch (error) {
       console.error('Transaction failed:', error);
       toast.error(t('purchase.error.failed', 'Transaction failed. Please try again.'));
@@ -94,6 +124,9 @@ const TokenPurchase = () => {
         <CardDescription>
           {t('purchase.description', 'Purchase $HEMO tokens at $0.05 each')}
         </CardDescription>
+        <div className="text-xs text-gray-500 mt-2 break-all">
+          Token: {HEMO_TOKEN_MINT.toString()}
+        </div>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
