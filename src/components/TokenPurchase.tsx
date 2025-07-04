@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import { PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js';
@@ -11,6 +10,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Coins, Loader2, CheckCircle, AlertTriangle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
+import { useRaydiumPrice } from '@/hooks/useRaydiumPrice';
 
 const TokenPurchase = () => {
   const { t } = useTranslation('common');
@@ -24,7 +24,7 @@ const TokenPurchase = () => {
   const HEMO_TOKEN_MINT = new PublicKey('9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk');
   const treasuryAddress = new PublicKey('11111111111111111111111111111112'); // Replace with actual treasury address
   
-  const tokenPrice = 0.05; // $0.05 per token
+  const { price: tokenPrice, loading: priceLoading } = useRaydiumPrice('9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk');
   const solPrice = 150; // Mock SOL price in USD
   const solAmount = parseFloat(amount) * tokenPrice / solPrice;
 
@@ -122,7 +122,10 @@ const TokenPurchase = () => {
           {t('purchase.title', 'Buy $HEMO Tokens')}
         </CardTitle>
         <CardDescription>
-          {t('purchase.description', 'Purchase $HEMO tokens at $0.05 each')}
+          {priceLoading 
+            ? t('purchase.loadingPrice', 'Loading current price...') 
+            : t('purchase.description', `Purchase $HEMO tokens at $${tokenPrice.toFixed(4)} each`)
+          }
         </CardDescription>
         <div className="text-xs text-gray-500 mt-2 break-all">
           Token: {HEMO_TOKEN_MINT.toString()}
@@ -142,9 +145,9 @@ const TokenPurchase = () => {
             min="1"
             step="1"
           />
-          {amount && (
+          {amount && !priceLoading && (
             <div className="text-sm text-gray-600 space-y-1">
-              <p>{t('purchase.cost', 'Cost')}: ${(parseFloat(amount) * tokenPrice).toFixed(2)} USD</p>
+              <p>{t('purchase.cost', 'Cost')}: ${(parseFloat(amount) * tokenPrice).toFixed(4)} USD</p>
               <p>{t('purchase.solAmount', 'SOL Amount')}: {solAmount.toFixed(6)} SOL</p>
             </div>
           )}
@@ -152,13 +155,18 @@ const TokenPurchase = () => {
 
         <Button
           onClick={handlePurchase}
-          disabled={!amount || isLoading || parseFloat(amount) <= 0}
+          disabled={!amount || isLoading || parseFloat(amount) <= 0 || priceLoading}
           className="w-full bg-hemo-600 hover:bg-hemo-700 text-white"
         >
           {isLoading ? (
             <>
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
               {t('purchase.processing', 'Processing...')}
+            </>
+          ) : priceLoading ? (
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              {t('purchase.loadingPrice', 'Loading price...')}
             </>
           ) : (
             t('purchase.buy', 'Buy Tokens')

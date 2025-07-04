@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
@@ -11,9 +10,11 @@ import {
   Target
 } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { useRaydiumPrice } from '@/hooks/useRaydiumPrice';
 
 const Tokenomics = () => {
   const { t } = useTranslation('tokenomics');
+  const { price: currentPrice, loading: priceLoading } = useRaydiumPrice('9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk');
 
   const distribution = [
     { 
@@ -49,8 +50,12 @@ const Tokenomics = () => {
   ];
 
   const tokenDetails = [
-    { label: t('tokenDetails.totalSupply'), value: "20,000,000", unit: "$HEMO" },
-    { label: t('tokenDetails.currentPrice'), value: "$0.05", unit: "USD" },
+    { label: t('tokenDetails.totalSupply'), value: "5,000,000", unit: "$HEMO" },
+    { 
+      label: t('tokenDetails.currentPrice'), 
+      value: priceLoading ? "..." : `$${currentPrice.toFixed(4)}`, 
+      unit: "USD" 
+    },
     { label: t('tokenDetails.hardCap'), value: "$1M", unit: "USD" },
     { label: t('tokenDetails.softCap'), value: "$200K", unit: "USD" }
   ];
