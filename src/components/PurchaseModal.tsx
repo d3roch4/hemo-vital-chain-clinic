@@ -22,15 +22,17 @@ const PurchaseModal = ({ children }: PurchaseModalProps) => {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md z-50">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-gray-900">
             {t('cta.buy')}
           </DialogTitle>
         </DialogHeader>
-        <div className="space-y-6">
+        <div className="space-y-6 relative z-50">
           {!connected ? (
-            <WalletConnection />
+            <div className="relative z-50">
+              <WalletConnection />
+            </div>
           ) : (
             <TokenPurchase />
           )}

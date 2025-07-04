@@ -26,8 +26,11 @@ const WalletConnection = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="flex justify-center">
-          <WalletMultiButton className="!bg-hemo-600 hover:!bg-hemo-700 !border-none !rounded-lg !px-6 !py-3 !text-white !font-medium transition-colors" />
+        <div className="flex justify-center relative z-[60]">
+          <WalletMultiButton 
+            className="!bg-hemo-600 hover:!bg-hemo-700 !border-none !rounded-lg !px-6 !py-3 !text-white !font-medium transition-colors !relative !z-[60]" 
+            style={{ zIndex: 60, position: 'relative' }}
+          />
         </div>
         
         {connected && publicKey && (
