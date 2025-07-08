@@ -14,9 +14,8 @@ interface Props {
 }
 
 const SolanaWalletProvider: FC<Props> = ({ children }) => {
-  // Use mainnet-beta cluster
-  const network = WalletAdapterNetwork.Mainnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  // Use a more reliable RPC endpoint that doesn't have rate limits
+  const endpoint = useMemo(() => 'https://solana-mainnet.g.alchemy.com/v2/demo', []);
 
   // Configure supported wallets
   const wallets = useMemo(
