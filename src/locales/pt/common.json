@@ -23,5 +23,9 @@
       "invalidAmount": "Por favor, insira uma quantidade válida",
       "failed": "Transação falhou. Tente novamente."
     }
+  },
+  "swap": {
+    "title": "Trocar por $HEMO",
+    "description": "Troque USDT por tokens $HEMO usando Rango"
   }
 }

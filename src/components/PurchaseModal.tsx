@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from '@/components/ui/button';
 import { useWallet } from '@solana/wallet-adapter-react';
 import WalletConnection from './WalletConnection';
-import TokenPurchase from './TokenPurchase';
+import RangoSwapWidget from './RangoSwapWidget';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -22,7 +22,7 @@ const PurchaseModal = ({ children }: PurchaseModalProps) => {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-gray-900">
             {t('cta.buy')}
@@ -32,7 +32,7 @@ const PurchaseModal = ({ children }: PurchaseModalProps) => {
           {!connected ? (
             <WalletConnection onModalClose={() => setOpen(false)} />
           ) : (
-            <TokenPurchase />
+            <RangoSwapWidget />
           )}
         </div>
       </DialogContent>
