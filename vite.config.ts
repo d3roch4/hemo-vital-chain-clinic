@@ -18,12 +18,16 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
       buffer: 'buffer',
+      process: 'process/browser',
+      stream: 'stream-browserify',
+      util: 'util',
     },
   },
   define: {
     global: 'globalThis',
+    'process.env': {},
   },
   optimizeDeps: {
-    include: ['buffer'],
+    include: ['buffer', 'process'],
   },
 }));
