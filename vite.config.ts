@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => ({
       process: 'process/browser',
       stream: 'stream-browserify',
       util: 'util',
+      'uuid-random': 'uuid-random/index.js',
     },
   },
   define: {
@@ -29,7 +30,17 @@ export default defineConfig(({ mode }) => ({
     Buffer: ['buffer', 'Buffer'],
   },
   optimizeDeps: {
-    include: ['buffer', 'process'],
+    include: ['buffer', 'process', 'uuid-random'],
     exclude: ['@rango-dev/widget-embedded'],
+    esbuildOptions: {
+      define: {
+        global: 'globalThis',
+      },
+    },
+  },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
   },
 }));
