@@ -23,9 +23,5 @@
       "invalidAmount": "Please enter a valid amount",
       "failed": "Transaction failed. Please try again."
     }
-  },
-  "swap": {
-    "title": "Swap to $HEMO",
-    "description": "Exchange USDT for $HEMO tokens using Rango"
   }
 }
