@@ -2,7 +2,7 @@
 {
   "wallet": {
     "title": "Conexão da Carteira",
-    "connect": "Conecte sua carteira Phantom para comprar tokens $HEMO",
+    "connect": "Conecte sua carteira para comprar tokens $HEMO",
     "connected": "Carteira conectada com sucesso",
     "address": "Endereço da Carteira"
   },

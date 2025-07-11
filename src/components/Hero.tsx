@@ -3,9 +3,54 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, DollarSign, Users } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import PurchaseModal from './PurchaseModal';
+import { Widget, WidgetConfig } from "@rango-dev/widget-embedded";
 
 const Hero = () => {
   const { t } = useTranslation('hero');
+
+   const config = {
+    from: {
+        blockchain: 'SOLANA',
+        token: {
+            blockchain: 'SOLANA',
+            address: 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
+            symbol: 'USDT'
+        }
+    },
+    to: {
+        blockchain: 'SOLANA',
+        token: {
+            blockchain: 'SOLANA',
+            address: '9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk',
+            symbol: 'HEMO'
+        }
+    },
+    //language: 'pt',
+    theme: {
+        mode: 'light',
+        borderRadius: 24,
+        singleTheme: true,
+        colors: {
+            light: {
+                secondary: '#6606e6',
+                primary: '#6606e6'
+            }
+        }
+    },
+    // This API key is only for test purpose. Don't use it in production.
+    apiKey: 'c6381a79-2817-4602-83bf-6a641a409e32',
+    // This project id is only for test purpose. Don't use it in production.
+    // Get your Wallet Connect project id from https://cloud.walletconnect.com/
+    walletConnectProjectId: 'e24844c5deb5193c1c14840a7af6a40b',
+    // Here, give your email and URL.
+    trezorManifest: {
+        appUrl: 'https://widget.rango.exchange/',
+        email: 'hi+trezorwidget@rango.exchange'
+    },
+    tonConnect: {
+        manifestUrl: 'https://raw.githubusercontent.com/rango-exchange/assets/refs/heads/main/manifests/tonconnect/manifest.json'
+    }
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-hemo-50 via-white to-medical-50 overflow-hidden">
@@ -56,7 +101,7 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animate-delay-600">
-            <PurchaseModal>
+            {/* <PurchaseModal>
               <Button 
                 size="lg" 
                 className="bg-medical-gradient hover:shadow-xl transition-all duration-300 text-lg px-8 py-4 animate-pulse-glow"
@@ -64,7 +109,8 @@ const Hero = () => {
                 {t('cta.buy')}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-            </PurchaseModal>
+            </PurchaseModal> */}
+            <Widget config={config} />
             <Button 
               variant="outline" 
               size="lg" 
