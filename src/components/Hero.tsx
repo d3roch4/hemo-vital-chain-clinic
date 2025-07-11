@@ -27,7 +27,7 @@ const Hero = () => {
     },
     //language: 'pt',
     theme: {
-        mode: 'light',
+        mode: 'light' as const,
         borderRadius: 24,
         singleTheme: true,
         colors: {
