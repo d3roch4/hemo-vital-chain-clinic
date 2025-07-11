@@ -6,6 +6,7 @@ import './i18n'
 import { Buffer } from 'buffer';
 
 // Make Buffer available globally for Solana libraries
-window.Buffer = Buffer;
+(window as any).Buffer = Buffer;
+(globalThis as any).Buffer = Buffer;
 
 createRoot(document.getElementById("root")!).render(<App />);
