@@ -17,30 +17,12 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      buffer: 'buffer',
-      process: 'process/browser',
-      stream: 'stream-browserify',
-      util: 'util',
-      'uuid-random': 'uuid-random/index.js',
     },
   },
   define: {
     global: 'globalThis',
-    'process.env': {},
-    Buffer: ['buffer', 'Buffer'],
   },
   optimizeDeps: {
-    include: ['buffer', 'process', 'uuid-random'],
-    exclude: ['@rango-dev/widget-embedded'],
-    esbuildOptions: {
-      define: {
-        global: 'globalThis',
-      },
-    },
-  },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
+    include: ['buffer'],
   },
 }));
