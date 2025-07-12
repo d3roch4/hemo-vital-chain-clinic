@@ -1,8 +1,6 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { useWallet } from '@solana/wallet-adapter-react';
 import WalletConnection from './WalletConnection';
 import TokenPurchase from './TokenPurchase';
 import { ArrowRight } from 'lucide-react';
@@ -14,8 +12,8 @@ interface PurchaseModalProps {
 
 const PurchaseModal = ({ children }: PurchaseModalProps) => {
   const { t } = useTranslation('hero');
-  const { connected } = useWallet();
   const [open, setOpen] = useState(false);
+  const [mockConnected, setMockConnected] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -29,8 +27,17 @@ const PurchaseModal = ({ children }: PurchaseModalProps) => {
           </DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
-          {!connected ? (
-            <WalletConnection onModalClose={() => setOpen(false)} />
+          {!mockConnected ? (
+            <div className="space-y-4">
+              <WalletConnection onModalClose={() => setOpen(false)} />
+              <Button 
+                onClick={() => setMockConnected(true)}
+                className="w-full"
+                variant="outline"
+              >
+                Skip to Purchase (Mock Demo)
+              </Button>
+            </div>
           ) : (
             <TokenPurchase />
           )}
