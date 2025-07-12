@@ -65,48 +65,15 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </PurchaseModal> */}
-            <div id="rango-widget-container"></div>
-            <script src="https://api.rango.exchange/widget/iframe.bundle.min.js"></script>
-            <script defer type="text/javascript">
-
-              const config = {
-                from: {
-                    blockchain: 'SOLANA',
-                    token: {
-                        blockchain: 'SOLANA',
-                        address: 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
-                        symbol: 'USDT'
-                    }
-                },
-                to: {
-                    blockchain: 'SOLANA',
-                    token: {
-                        blockchain: 'SOLANA',
-                        address: '9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk',
-                        symbol: 'HEMO'
-                    }
-                },
-                theme: {
-                    mode: 'light',
-                    singleTheme: true
-                },
-                // This API key is only for test purpose. Don't use it in production.
-                apiKey: 'c6381a79-2817-4602-83bf-6a641a409e32',
-                // This project id is only for test purpose. Don't use it in production.
-                // Get your Wallet Connect project id from https://cloud.walletconnect.com/
-                walletConnectProjectId: 'e24844c5deb5193c1c14840a7af6a40b',
-                // Here, give your email and URL.
-                trezorManifest: {
-                    appUrl: 'https://widget.rango.exchange/',
-                    email: 'hi+trezorwidget@rango.exchange'
-                },
-                tonConnect: {
-                    manifestUrl: 'https://raw.githubusercontent.com/rango-exchange/assets/refs/heads/main/manifests/tonconnect/manifest.json'
-                }
-              }
-                          
-              rangoWidget.init(config)
-            </script>
+            <PurchaseModal>
+              <Button 
+                size="lg" 
+                className="bg-medical-gradient hover:shadow-xl transition-all duration-300 text-lg px-8 py-4 animate-pulse-glow"
+              >
+                {t('cta.buy')}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </PurchaseModal>
             <Button 
               variant="outline" 
               size="lg" 
