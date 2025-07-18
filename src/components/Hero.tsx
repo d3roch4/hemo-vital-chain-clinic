@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, DollarSign, Users } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import PurchaseModal from './PurchaseModal';
+import Script from 'next/script'
 
 const Hero = () => {
   const { t } = useTranslation('hero');
+
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-hemo-50 via-white to-medical-50 overflow-hidden">
@@ -56,7 +58,7 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animate-delay-600">
-            <PurchaseModal>
+            {/* <PurchaseModal>
               <Button 
                 size="lg" 
                 className="bg-medical-gradient hover:shadow-xl transition-all duration-300 text-lg px-8 py-4 animate-pulse-glow"
@@ -64,7 +66,10 @@ const Hero = () => {
                 {t('cta.buy')}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-            </PurchaseModal>
+            </PurchaseModal> */}
+            <div id="rango-widget-container"></div>
+            <Script src="https://api.rango.exchange/widget/iframe.bundle.min.js"></Script> 
+            <Script src="init-rango.js" strategy="lazyOnload"></Script>
             <Button 
               variant="outline" 
               size="lg" 
