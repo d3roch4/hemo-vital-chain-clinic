@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
@@ -11,48 +10,54 @@ import {
   Target
 } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { useRaydiumPrice } from '@/hooks/useRaydiumPrice';
 
 const Tokenomics = () => {
   const { t } = useTranslation('tokenomics');
+  const { price: currentPrice, loading: priceLoading } = useRaydiumPrice('9Brh8PuVqZkvb2e8CfHyuveTYmRJGxh74y1Rz918ZQhk');
 
   const distribution = [
     { 
       category: t('distribution.construction'), 
       percentage: 40, 
       color: "bg-hemo-500", 
-      amount: "20M" 
+      amount: "400K" 
     },
     { 
       category: t('distribution.operation'), 
       percentage: 25, 
       color: "bg-hemo-400", 
-      amount: "12.5M" 
+      amount: "250K" 
     },
     { 
       category: t('distribution.reserve'), 
       percentage: 15, 
       color: "bg-hemo-300", 
-      amount: "7.5M" 
+      amount: "150K" 
     },
     { 
       category: t('distribution.team'), 
       percentage: 12, 
       color: "bg-hemo-600", 
-      amount: "6M" 
+      amount: "120K" 
     },
     { 
       category: t('distribution.partnerships'), 
       percentage: 8, 
       color: "bg-hemo-200", 
-      amount: "4M" 
+      amount: "80K" 
     }
   ];
 
   const tokenDetails = [
-    { label: t('tokenDetails.totalSupply'), value: "1,000,000,000", unit: "$HEMO" },
-    { label: t('tokenDetails.currentPrice'), value: "$0.05", unit: "USD" },
-    { label: t('tokenDetails.hardCap'), value: "$50M", unit: "USD" },
-    { label: t('tokenDetails.softCap'), value: "$10M", unit: "USD" }
+    { label: t('tokenDetails.totalSupply'), value: "5,000,000", unit: "$HEMO" },
+    { 
+      label: t('tokenDetails.currentPrice'), 
+      value: priceLoading ? "..." : `$${currentPrice.toFixed(4)}`, 
+      unit: "USD" 
+    },
+    { label: t('tokenDetails.hardCap'), value: "$1M", unit: "USD" },
+    { label: t('tokenDetails.softCap'), value: "$200K", unit: "USD" }
   ];
 
   return (
@@ -124,7 +129,7 @@ const Tokenomics = () => {
                     <div className="flex justify-between items-center">
                       <span className="text-sm font-medium text-gray-700">{item.category}</span>
                       <div className="flex items-center space-x-2">
-                        <span className="text-sm font-bold text-gray-900">{item.amount}</span>
+                        <span className="text-sm font-bold text-gray-900">${item.amount}</span>
                         <Badge variant="secondary" className="text-xs">
                           {item.percentage}%
                         </Badge>
