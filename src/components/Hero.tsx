@@ -3,14 +3,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, DollarSign, Users } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import PurchaseModal from './PurchaseModal';
-import Script from 'next/script'
 
-const Hero = () => {
+interface HeroProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+const Hero = ({ className, ...props }: HeroProps) => {
   const { t } = useTranslation('hero');
 
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-hemo-50 via-white to-medical-50 overflow-hidden">
+    <section className={`relative min-h-screen flex items-center justify-center bg-gradient-to-br from-hemo-50 via-white to-medical-50 overflow-hidden ${className || ''}`} {...props}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 left-10 w-72 h-72 bg-hemo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
@@ -67,9 +68,6 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </PurchaseModal> */}
-            <div id="rango-widget-container"></div>
-            <Script src="https://api.rango.exchange/widget/iframe.bundle.min.js"></Script> 
-            <Script src="init-rango.js" strategy="lazyOnload"></Script>
             <Button 
               variant="outline" 
               size="lg" 
