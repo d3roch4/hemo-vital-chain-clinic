@@ -29,7 +29,7 @@ const config = {
         singleTheme: true
     },
     // This API key is only for test purpose. Don't use it in production.
-    apiKey: 'c6381a79-2817-4602-83bf-6a641a409e32',
+    // apiKey: 'c6381a79-2817-4602-83bf-6a641a409e32',
     // This project id is only for test purpose. Don't use it in production.
     // Get your Wallet Connect project id from https://cloud.walletconnect.com/
     walletConnectProjectId: 'e24844c5deb5193c1c14840a7af6a40b',
